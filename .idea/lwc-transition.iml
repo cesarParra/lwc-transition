@@ -3,7 +3,7 @@
   <component name="FacetManager">
     <facet type="IlluminatedCloud" name="Illuminated Cloud">
       <configuration>
-        <option name="connectionName" value="test-0jfcomzdvsq5@example.com" />
+        <option name="connectionName" value="Transition" />
         <option name="connectionType" value="SFDX" />
       </configuration>
     </facet>
@@ -15,7 +15,7 @@
       <sourceFolder url="file://$MODULE_DIR$/force-app" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/examples" isTestSource="false" />
     </content>
-    <orderEntry type="jdk" jdkName="IlluminatedCloud (lwc-transition/test-0jfcomzdvsq5@example.com)" jdkType="IlluminatedCloud" />
+    <orderEntry type="jdk" jdkName="IlluminatedCloud (lwc-transition/Transition)" jdkType="IlluminatedCloud" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="lwc-transition/lwc_types" level="project" />
   </component>

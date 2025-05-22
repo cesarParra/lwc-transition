@@ -63,6 +63,8 @@ Reference the `transition` component in your LWC template:
 </c-transition>
 ```
 
+![Fade Transition Example](assets/fade.gif)
+
 ### Slide Transition
 
 ```html
@@ -79,7 +81,9 @@ Reference the `transition` component in your LWC template:
 </c-transition>
 ```
 
-### Combined Effects (Slide and Fade)
+![Slide Transition Example](assets/slide.gif)
+
+### Transform
 
 ```html
 
@@ -91,9 +95,11 @@ Reference the `transition` component in your LWC template:
   leave="ease-in duration-200"
   leave-from="opacity-100 translate-y-0"
   leave-to="opacity-0 translate-y-4">
-  <p>Slide and fade content</p>
+  <p>Transformed content</p>
 </c-transition>
 ```
+
+![Transform Transition Example](assets/transform.gif)
 
 ## JavaScript Controller Example
 

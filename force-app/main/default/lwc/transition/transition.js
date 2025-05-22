@@ -2,7 +2,6 @@ import { LightningElement, api } from "lwc";
 
 export default class Transition extends LightningElement {
   _show = false;
-  realShow = false;
   @api enter = "";
   @api enterFrom = "";
   @api enterTo = "";
@@ -18,15 +17,13 @@ export default class Transition extends LightningElement {
   }
 
   set show(value) {
-    this._show = value;
-
     if (value) {
       // If true, show immediately, otherwise it will be hidden
       // once the transition ends
-      this.realShow = true;
+      this._show = true;
     }
 
-    this.updateTransition();
+    this.updateTransition(value);
   }
 
   get allContainerClasses() {
@@ -37,7 +34,7 @@ export default class Transition extends LightningElement {
     this.renderResolver();
     if (!this.rendered) {
       this.rendered = true;
-      this.updateTransition();
+      this.updateTransition(this._show);
 
       const renderedEvent = new CustomEvent("rendered");
       this.dispatchEvent(renderedEvent);
@@ -56,14 +53,14 @@ export default class Transition extends LightningElement {
     return 0;
   }
 
-  @api async updateTransition() {
+  @api async updateTransition(show) {
     await this.waitForRender;
     const element = this.template.querySelector(".transition-root");
     if (!element) {
       console.log("no element");
       return;
     }
-    if (this.show) {
+    if (show) {
       console.log("show");
       element.classList.remove(...this.leave.split(" "), ...this.leaveFrom.split(" "), ...this.leaveTo.split(" "));
       element.classList.add(...this.enter.split(" "), ...this.enterFrom.split(" "));
@@ -81,7 +78,7 @@ export default class Transition extends LightningElement {
       // Wait for the transition to finish before calling callback
       const duration = this.getTransitionDuration();
       setTimeout(() => {
-        this.realShow = false;
+        this._show = false;
       }, duration);
     }
   }
