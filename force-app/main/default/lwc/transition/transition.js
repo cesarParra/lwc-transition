@@ -57,11 +57,9 @@ export default class Transition extends LightningElement {
     await this.waitForRender;
     const element = this.template.querySelector(".transition-root");
     if (!element) {
-      console.log("no element");
       return;
     }
     if (show) {
-      console.log("show");
       element.classList.remove(...this.leave.split(" "), ...this.leaveFrom.split(" "), ...this.leaveTo.split(" "));
       element.classList.add(...this.enter.split(" "), ...this.enterFrom.split(" "));
       // Force reflow for transition
